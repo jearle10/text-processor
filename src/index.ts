@@ -1,8 +1,6 @@
-const { TextProcessor} = require("./processor/processor");
-
+import { TextProcessor} from "./processor/processor"
 
 const sampleTest = `
-
 lorem ipsum dolor sit amet consectetur lorem ipsum et mihi quoniam et 
 adipiscing elit.sed quoniam et advesperascit et mihi ad villam revertendum 
 est nunc quidem hactenus ex rebus enim timiditas non ex vocabulis nascitur.nummus 
@@ -36,18 +34,17 @@ let control_text = "test i am testing me a test to challenge ten eleven twelve t
 
 const Text = new TextProcessor(sampleTest)
 
-console.log("Total sentences: ", Text.countSentences())
+console.log("Total sentences: ", Text.sentenceCount)
 
-console.log("Total words: ",  Text.countWords())
+console.log("Total words: ",  Text.wordCount)
 
 console.log("Longest word: ", Text.longestWord())
 
-console.log(Text.topWords(8))
+console.log("Top words: ", Text.topWords(8))
 
 console.log("Average sentence length: " , Text.averageSentenceLength())
 
 console.log("% of words occurring once: " , Text.occurrenceRate(1) ,"%")
 
-// console.log("Prominence: " , Text.prominence("test"))
-
+// Show prominence of top 5 frequent words
 console.log("Prominence: " , Text.topNProminence(5))
